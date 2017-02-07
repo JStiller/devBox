@@ -34,7 +34,7 @@ install() {
 
 	for _PACKAGE in ${_PACKAGE_LIST}
 		do
-			execute "apt-get install --yes ${_PACKAGE}" "${_PACKAGE}"
+			execute "sudo apt-get install --yes ${_PACKAGE}" "${_PACKAGE}"
 	done
 }
 

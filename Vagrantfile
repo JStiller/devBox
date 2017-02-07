@@ -9,10 +9,11 @@ PROJECT_SETTINGS["path"]["project"] = PROJECT_SETTINGS["path"]["root"] + "/" + P
 PROJECT_SETTINGS["path"]["log"] = "/vagrant/log"
 
 ENVIRONMENT_SETTINGS = {}
-ENVIRONMENT_SETTINGS["database"] = {}
-ENVIRONMENT_SETTINGS["database"]["username"] = 'root'
-ENVIRONMENT_SETTINGS["database"]["password"] = 'root'
-ENVIRONMENT_SETTINGS["email"] = 'info@josestiller.de'
+ENVIRONMENT_SETTINGS["ENV_DATABASE"] = {}
+ENVIRONMENT_SETTINGS["ENV_DATABASE"]["username"] = 'root'
+ENVIRONMENT_SETTINGS["ENV_DATABASE"]["password"] = 'root'
+ENVIRONMENT_SETTINGS["ENV_EMAIL"] = 'info@josestiller.de'
+ENVIRONMENT_SETTINGS["ENV_AUTHOR"] = 'José Stiller'
 
 Vagrant.configure(2) do |config|
 	config.vm.box = "ubuntu/xenial64"
@@ -43,7 +44,7 @@ Vagrant.configure(2) do |config|
 		args: [PROJECT_SETTINGS["name"], PROJECT_SETTINGS["path"]["project"], PROJECT_SETTINGS["path"]["log"], PROJECT_SETTINGS["path"]["root"]],
 		env: ENVIRONMENT_SETTINGS,
 		binary: true,
-		privileged: true,
+		privileged: false,
 		keep_color: true
 		
 	config.vm.provision :shell,
@@ -52,7 +53,7 @@ Vagrant.configure(2) do |config|
 		args: [PROJECT_SETTINGS["name"], PROJECT_SETTINGS["path"]["project"], PROJECT_SETTINGS["path"]["log"]],
 		env: ENVIRONMENT_SETTINGS,
 		binary: true,
-		privileged: true,
+		privileged: false,
 		keep_color: true,
 		run: "always"
 end

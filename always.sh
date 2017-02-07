@@ -20,4 +20,4 @@ source /vagrant/helper.sh ${PATH_LOG}
 #########################################################
 
 info "Restart Apache"
-execute "systemctl restart apache2.service" "systemctl restart apache2.service"
+execute "sudo systemctl restart apache2.service" "systemctl restart apache2.service"
